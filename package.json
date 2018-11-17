@@ -1,0 +1,23 @@
+{
+  "name": "first-nuxt",
+  "version": "1.0.0",
+  "description": "My bedazzling Nuxt.js project",
+  "author": "Nakanishi, Yusuke",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "cross-env": "^5.2.0",
+    "node-sass": "^4.10.0",
+    "nuxt": "^2.0.0",
+    "nuxt-sass-resources-loader": "^2.0.5",
+    "sass-loader": "^7.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
