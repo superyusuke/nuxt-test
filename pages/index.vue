@@ -1,67 +1,28 @@
 <template>
-  <section class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        first-nuxt
-      </h1>
-      <h2 class="subtitle">
-        My stunning Nuxt.js project
-      </h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green"
-          >Documentation</a
-        >
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-          >GitHub</a
-        >
-      </div>
-    </div>
-  </section>
+  <div>
+    <h2>top</h2>
+    <div>{{ myName }}</div>
+    <button @click="commit">changeName commit mutation</button>
+    <button @click="dispatch">changeName dispatch action</button>
+  </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-
 export default {
-  components: {
-    Logo
+  computed: {
+    myName() {
+      return this.$store.state.user.userName
+    }
+  },
+  methods: {
+    commit() {
+      this.$store.commit('user/changeName', 'changedName')
+    },
+    dispatch() {
+      this.$store.dispatch('user/changeName', 'changedName')
+    }
   }
 }
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>
+<style></style>
