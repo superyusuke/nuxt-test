@@ -12,6 +12,12 @@ export default {
     id() {
       return this.$route.params.id
     }
+  },
+  async asyncData({ $axios, route }) {
+    const url = 'https://api.myjson.com/bins/159wqn'
+    const res = await $axios.get(url)
+    console.log(route.params.id, 'routes')
+    return res.data
   }
 }
 </script>

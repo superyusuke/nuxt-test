@@ -4,6 +4,9 @@
     <div>{{ myName }}</div>
     <button @click="commit">changeName commit mutation</button>
     <button @click="dispatch">changeName dispatch action</button>
+    <template v-for="(o, index) in member">
+      <div :key="index">{{ o }}</div>
+    </template>
   </div>
 </template>
 
@@ -13,6 +16,11 @@ export default {
     myName() {
       return this.$store.state.user.userName
     }
+  },
+  async asyncData({ $axios }) {
+    const url = 'https://api.myjson.com/bins/159wqn'
+    const res = await $axios.get(url)
+    return res.data
   },
   methods: {
     commit() {
